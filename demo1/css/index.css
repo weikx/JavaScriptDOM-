@@ -1,0 +1,25 @@
+body{
+    background-color: #ccc;
+    color: #333;
+    margin: 1em 10%;
+}
+h1{
+    color: #333;
+}
+a{
+    color: #c60;
+    font-weight: bold;
+    text-decoration: none;
+}
+ul{
+    padding:0;
+}
+li{
+    list-style: none;
+    padding: 1em;
+    float: left;
+}
+img{
+    display: block;
+    clear: both;
+}
