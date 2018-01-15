@@ -26,10 +26,10 @@ function perpareGallery() {
         return false;
     }
     if (!document.getElementsByTagName) {
-        return fasle;
+        return false;
     }
     if (!document.getElementById("imagegallery")) {
-        return fasle;
+        return false;
     }
     var gallery = document.getElementById("imagegallery");
     var links = gallery.getElementsByTagName("a");
