@@ -1,5 +1,8 @@
 "use strict"
-window.onload = perpareGallery;
+window.onload = function () {
+    perpareGallery();
+    preparePlaceholder();
+};
 function showPic(whichPic) {
     if (!document.getElementById("placeholder")) {
         return false;
@@ -38,4 +41,18 @@ function perpareGallery() {
             return !showPic(this);
         }
     }
+}
+
+function preparePlaceholder() {
+    var img = document.createElement('img');
+    img.setAttribute('src', 'http://via.placeholder.com/600x400?text=this%20is%20a%20default%20image');
+    img.setAttribute('id', 'placeholder');
+    var p = document.createElement('p');
+    p.setAttribute('id', "description");
+    var text = document.createTextNode('this is description.');
+    p.appendChild(text);
+
+    var imagegallery = document.getElementById('imagegallery');
+    imagegallery.parentNode.insertBefore(img, imagegallery);
+    imagegallery.parentNode.insertBefore(p, imagegallery);
 }
