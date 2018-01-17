@@ -1,4 +1,4 @@
-"use strict"
+"use strict";
 window.onload = function () {
     perpareGallery();
     preparePlaceholder();
@@ -44,6 +44,11 @@ function perpareGallery() {
 }
 
 function preparePlaceholder() {
+    // 动态添加图片和文字
+    if (!document.createElement) return false;
+    if (!document.createTextNode) return false;
+    if (!document.getElementById) return false;
+    if (!document.getElementById('imagegallery')) return false;
     var img = document.createElement('img');
     img.setAttribute('src', 'http://via.placeholder.com/600x400?text=this%20is%20a%20default%20image');
     img.setAttribute('id', 'placeholder');
@@ -53,6 +58,18 @@ function preparePlaceholder() {
     p.appendChild(text);
 
     var imagegallery = document.getElementById('imagegallery');
-    imagegallery.parentNode.insertBefore(img, imagegallery);
-    imagegallery.parentNode.insertBefore(p, imagegallery);
+    // imagegallery.parentNode.insertBefore(img, imagegallery);
+    // imagegallery.parentNode.insertBefore(p, imagegallery);
+    insertAfter(img, imagegallery);
+    insertAfter(p, img);
+}
+
+function insertAfter(newElement, targetElement) {
+    // 在现有元素后插入一个新元素
+    var parent = targetElement.parentNode;
+    if (targetElement === parent.lastChild){
+        parent.appendChild(newElement);
+    } else {
+        parent.insertBefore(newElement, targetElement.nextSibling);
+    }
 }
